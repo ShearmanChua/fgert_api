@@ -1,0 +1,5 @@
+allennlp==2.8.0
+allennlp-models==2.8.0
+tqdm
+pytorch-pretrained-bert
+dask

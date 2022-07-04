@@ -1,0 +1,25 @@
+svd: 
+lr: 1e-5
+max_epoch: 80
+batch_size: 8
+elmo_dropout: 0.5
+repr_dropout: 0.2
+dist_dropout: 0.2
+gpu: True
+device: 0
+weight_decay: 0.01
+latent_size: 0
+train: False
+test: True
+tokens_field: "tokens"
+entities_field: "fine_grained_entities"
+sentence_field: "text"
+file_paths:
+  labels_file_name: ./ner_tags/HANDS_ner_tags.json
+  train_file_name: 
+  val_file_name: 
+  test_file_name: ./data/temp.csv
+  elmo_option_file: ./model/elmo/elmo_5.5B_options.json
+  elmo_weights_file: ./model/elmo/elmo_5.5B_weights.hdf5
+  model_checkpoint_file_name: ./model/saved_models/best_mac.mdl
+  save_path: ./data

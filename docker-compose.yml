@@ -1,0 +1,30 @@
+version: '3'
+services:
+  fget:
+    build: ./
+    stdin_open: true
+    tty: true
+    networks:
+      - api
+    ports:
+      - 8000:8000
+    command: ["uvicorn", "api_service:app", "--host", "0.0.0.0", "--port", "8000"]
+    environment:
+      NVIDIA_VISIBLE_DEVICES: 0
+      CUDA_VISIBLE_DEVICES: 0
+    ulimits:
+      memlock: -1
+    shm_size: '16gb'
+    volumes:
+      - .:/fget
+    ipc: "host"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+networks:
+  api:
